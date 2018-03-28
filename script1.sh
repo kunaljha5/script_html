@@ -9,7 +9,7 @@ RC=$?
 if [[ $RC -ne "0" ]]; then
 	echo "Python not installed"
 	echo "Installing Python"
-	sudo apt-get install python* -y
+	sudo  apt-get  install python-minimal -y
 else
 	echo "Python Already Installed."
 fi
