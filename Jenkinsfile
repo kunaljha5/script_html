@@ -1,0 +1,30 @@
+node {
+   
+
+   	stage 'Stage 2'
+   		git url: 'https://github.com/kunaljha5/script_html.git'
+   	stage 'Stage 1'
+   		echo 'Calling Script5'
+   		sh './script5.sh'
+   	stage 'Stage 2'
+   		echo 'Calling Script1'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script1.sh"'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.66.47 "./script1.sh"'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script1.sh"'
+   	stage 'Stage 3'
+   		echo 'Calling Script2'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script2.sh"'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.66.47 "./script2.sh"'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script2.sh"'
+   	stage 'Stage 4'
+   		echo 'Calling Script3'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script3.sh"'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.66.47 "./script3.sh"'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script3.sh"'
+   	stage 'Stage 5'
+   		echo 'Calling Script4'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script4.sh"'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.66.47 "./script4.sh"'
+   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script4.sh"'
+  
+}
