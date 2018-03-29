@@ -5,7 +5,6 @@ node {
 }
 
 parallel linux: {
-	node('Linux') {
 		stage('Build') {
 			echo 'Build linux'
 		}
@@ -15,5 +14,4 @@ parallel linux: {
 		stage('Static analysis') {
 			echo 'Static analysis linux'
 		}
-	}
 }
