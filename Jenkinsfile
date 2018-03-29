@@ -18,7 +18,21 @@ parallel Stage1: {
 			echo 'Static analysis linux'
 		}
 	}
+},
+Stage2: {
+	node {
+		stage('Build') {
+			echo 'Build linux'
+		}
+		stage('Tests') {
+			echo 'Tests linux'
+		}
+		stage('Static analysis') {
+			echo 'Static analysis linux'
+		}
+	}
 }
+
 
 node {
 	stage('Checkout') {
