@@ -113,7 +113,7 @@ node {
 
 
 
-parallel  Production_Deploy: {
+parallel  Prod_Deploy: {
 		
 		node {
    			stage('Deploy_env') {
