@@ -6,36 +6,53 @@ node {
 }
 
 
-parallel  Deployment_Node1: {
+parallel  Dev_Deploy: {
 		
 		node {
-		stage ('Node1') {
+   			stage('Deploy') {
+   				echo 'Transfering dependent scripts to remote node'
+   				sh './script5.sh'
+			}
+		}
+	},
+py_Verify: {
+		node {
+			stage ('py_Node1') {
 				echo 'Checking Python avaibility on remote node1 and installing'
 				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script1.sh"'
 				}
-
 		}
 	},
-Deployment_Node2: {
+http_Verify: {
 		node {
-		stage ('Node2') {
-			   	echo 'Checking Python avaibility on remote node2 and installing'
-			   	sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.66.47 "./script1.sh"'
+			stage ('http_Node1') {
+				echo 'Checking apache2 and installing on remote node1'
+				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script2.sh"'
 				}
 		}
-	},
-Deployment_Node3: {
+},
+html_deploy: {
 		node {
-		stage ('Node3') {
-		   		echo 'Checking Python avaibility on remote node3 and installing'
-		   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script1.sh"'
+			stage ('html_Node1') {
+   				echo 'Deploying remote nodes html page'
+				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script3.sh"'
+				}
+		}
+},
+
+test_dev: {
+		node {
+			stage ('test_Node1') {
+				echo 'Testing the remote nodes content as per thier node type'
+				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script3.sh"'
 				}
 		}
 }
 
+
 node {
-	stage('Deployment_Completed') {
-		echo 'Deployment_Node1,Node2,Node3 Completed'
+	stage('Dev_Result') {
+		echo 'Development Node1 Build, Deployment, Test Completed'
 	}
 }
 
