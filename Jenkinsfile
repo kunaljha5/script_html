@@ -6,7 +6,7 @@ node {
 }
 
 
-parallel  Dev_Deploy: {
+parallel  1Dev_Deploy: {
 		
 		node {
    			stage('Deploy_env') {
@@ -15,7 +15,7 @@ parallel  Dev_Deploy: {
 			}
 		}
 	},
-Python: {
+2Python: {
 		node {
 			stage ('py_Node1') {
 				echo 'Checking Python avaibility on remote node1 and installing'
@@ -23,7 +23,7 @@ Python: {
 				}
 		}
 	},
-Http: {
+3Http: {
 		node {
 			stage ('http_Node1') {
 				echo 'Checking apache2 and installing on remote node1'
@@ -31,7 +31,7 @@ Http: {
 				}
 		}
 },
-Html: {
+4Html: {
 		node {
 			stage ('html_Node1') {
    				echo 'Deploying remote node1 html page'
@@ -40,7 +40,7 @@ Html: {
 		}
 },
 
-Tesing: {
+5Testing: {
 		node {
 			stage ('test_Node1') {
 				echo 'Testing the remote node1 content as per thier node type'
@@ -58,7 +58,7 @@ node {
 
 
 
-parallel  Test_Deploy: {
+parallel  1Test_Deploy: {
 		
 		node {
    			stage('Deploy_env') {
@@ -67,7 +67,7 @@ parallel  Test_Deploy: {
 			}
 		}
 	},
-Python: {
+2Python: {
 		node {
 			stage ('py_Node2') {
 				echo 'Checking Python avaibility on remote node2 and installing'
@@ -75,7 +75,7 @@ Python: {
 				}
 		}
 	},
-Http: {
+3Http: {
 		node {
 			stage ('http_Node2') {
 				echo 'Checking apache2 and installing on remote node2'
@@ -83,7 +83,7 @@ Http: {
 				}
 		}
 },
-Html: {
+4Html: {
 		node {
 			stage ('html_Node2') {
    				echo 'Deploying remote node2 html page'
@@ -92,7 +92,7 @@ Html: {
 		}
 },
 
-Tesing: {
+5Tesing: {
 		node {
 			stage ('test_Node2') {
 				echo 'Testing the remote node2 content as per thier node type'
@@ -113,7 +113,7 @@ node {
 
 
 
-parallel  Prod_Deploy: {
+parallel  1Prod_Deploy: {
 		
 		node {
    			stage('Deploy_env') {
@@ -122,7 +122,7 @@ parallel  Prod_Deploy: {
 			}
 		}
 	},
-Python: {
+2Python: {
 		node {
 			stage ('py_Node3') {
 				echo 'Checking Python avaibility on remote node3 and installing'
@@ -130,7 +130,7 @@ Python: {
 				}
 		}
 	},
-Http: {
+3Http: {
 		node {
 			stage ('http_Node3') {
 				echo 'Checking apache2 and installing on remote node1'
@@ -138,7 +138,7 @@ Http: {
 				}
 		}
 },
-Html: {
+4Html: {
 		node {
 			stage ('html_Node3') {
    				echo 'Deploying remote node3 html page'
@@ -147,7 +147,7 @@ Html: {
 		}
 },
 
-Tesing: {
+5Tesing: {
 		node {
 			stage ('test_Node3') {
 				echo 'Testing the remote node3 content as per thier node type'
