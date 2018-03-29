@@ -7,6 +7,8 @@ node {
 
 
 parallel  Stage2: {
+		
+		node {
 		stage ('Node1') {
 			   	echo 'Checking Python avaibility on remote node1 and installing'
 			   	sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script1.sh"'
@@ -19,5 +21,6 @@ parallel  Stage2: {
 		   		echo 'Checking Python avaibility on remote node3 and installing'
 		   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script1.sh"'
 				}
+		}
 	}
 
