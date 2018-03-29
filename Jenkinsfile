@@ -25,10 +25,12 @@ Stage3: {
 		}
 	},
 Stage4: {
+		node {
 		stage ('Node3') {
 		   		echo 'Checking Python avaibility on remote node3 and installing'
 		   		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script1.sh"'
 				}
+		}
 }
 
 node {
