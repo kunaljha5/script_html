@@ -17,16 +17,16 @@ parallel linux: {
 		}
 	}
 },
-windows: {
-	node('Windows') {
-		stage('Build') {
-			echo 'Build windows'
+Linux: {
+	node('Linux') {
+		stage('Build1') {
+			echo 'Build linux1'
 		}
 		stage('Tests') {
-			echo 'Tests windows'
+			echo 'Tests linux1'
 		}
 		stage('Static analysis') {
-			echo 'Static analysis windows'
+			echo 'Static analysis linux1'
 		}
 	}
 }
