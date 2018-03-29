@@ -21,9 +21,3 @@ parallel  Stage2: {
 				}
 	}
 
-node {
-	stage('Stage3') {
-		echo "Last"
-
-	}
-}
