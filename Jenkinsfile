@@ -1,12 +1,12 @@
 node {
-	stage('Stage1') {
+	stage('Stage0') {
 		echo "Git Fetch"
 		git url: 'https://github.com/kunaljha5/script_html.git'
 	}
 }
 
 
-parallel  Stage2: {
+parallel  Deployment_Node1: {
 		
 		node {
 		stage ('Node1') {
@@ -16,7 +16,7 @@ parallel  Stage2: {
 
 		}
 	},
-Stage3: {
+Deployment_Node2: {
 		node {
 		stage ('Node2') {
 			   	echo 'Checking Python avaibility on remote node2 and installing'
@@ -24,7 +24,7 @@ Stage3: {
 				}
 		}
 	},
-Stage4: {
+Deployment_Node3: {
 		node {
 		stage ('Node3') {
 		   		echo 'Checking Python avaibility on remote node3 and installing'
@@ -34,12 +34,12 @@ Stage4: {
 }
 
 node {
-	stage('Checkout') {
-		echo 'kunaljha5'
+	stage('Deployment_Completed') {
+		echo 'Deployment_Node1,Node2,Node3 Completed'
 	}
 }
 
-parallel  Stag2: {
+parallel  Verify_dev_node1: {
 
 		node {
 		stage ('Node1') {
@@ -48,7 +48,7 @@ parallel  Stag2: {
 				}
 		}
 	},
-Stag3: {
+Verify_dev_node2: {
 		node {
 		stage ('Node2') {
 		echo 'Checking apache2 and installing on remote node2'
@@ -56,7 +56,7 @@ Stag3: {
 				}
 		}
 	},
-Stag4: {
+Verify_dev_node3: {
 		node {
 		stage ('Node3') { 
 		echo 'Checking apache2 and installing on remote node3'
@@ -64,3 +64,39 @@ Stag4: {
 				}
 		}
 }
+
+
+node {
+	stage('Verification_Completed') {
+		echo 'Verification_Node1,Node2,Node3 Completed'
+	}
+}
+
+
+parallel  Verify_dev_node1: {
+
+		node {
+		stage ('Node1') {
+		echo 'Checking apache2 and installing on remote node1'
+		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script3.sh"'
+				}
+		}
+	},
+Verify_dev_node2: {
+		node {
+		stage ('Node2') {
+		echo 'Checking apache2 and installing on remote node2'
+		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.66.47 "./script3.sh"'
+				}
+		}
+	},
+Verify_dev_node3: {
+		node {
+		stage ('Node3') { 
+		echo 'Checking apache2 and installing on remote node3'
+		sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script3.sh"'
+				}
+		}
+}
+
+
