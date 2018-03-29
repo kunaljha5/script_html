@@ -16,5 +16,4 @@ parallel linux: {
 			echo 'Static analysis linux'
 		}
 	}
-},
 }
