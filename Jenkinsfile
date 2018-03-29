@@ -6,8 +6,8 @@ node {
 	}
 }
 
-parallel linux: {
-	node('Linux') {
+parallel Stage1: {
+	node {
 		stage('Build') {
 			echo 'Build linux'
 		}
