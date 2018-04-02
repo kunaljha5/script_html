@@ -44,7 +44,7 @@ Testing: {
 		node {
 			stage ('test_Node1') {
 				echo 'Testing the remote node1 content as per thier node type'
-				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script3.sh"'
+				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.64.64 "./script4.sh"'
 				}
 		}
 }
@@ -96,7 +96,7 @@ Tesing: {
 		node {
 			stage ('test_Node2') {
 				echo 'Testing the remote node2 content as per thier node type'
-				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.66.47 "./script3.sh"'
+				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.66.47 "./script4.sh"'
 				}
 		}
 }
@@ -151,7 +151,7 @@ Tesing: {
 		node {
 			stage ('test_Node3') {
 				echo 'Testing the remote node3 content as per thier node type'
-				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script3.sh"'
+				sh 'ssh -i /var/lib/jenkins/secrets/learning1.pem ubuntu@172.31.44.198 "./script4.sh"'
 				}
 		}
 }
